@@ -1,5 +1,6 @@
 package system;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,11 +8,16 @@ import static org.junit.Assert.*;
 
 public class LeafTest {
 
-    FileSystem fileSystem = new FileSystem(100);
+    FileSystem fileSystem;
 
     @Before
     public void initialize() {
         fileSystem = new FileSystem(1000);
+    }
+
+    @After
+    public void erase() {
+        fileSystem = null;
     }
 
     @Test
