@@ -31,6 +31,11 @@ public class LeafTest {
         assertNotNull(leaf);
     }
 
+    @Test (expected = Exception.class)
+    public void createLeafException() throws Exception {
+        Leaf leaf = new Leaf("yogev", 100000);
+    }
+
     @Test
     public void name() {
         try {
