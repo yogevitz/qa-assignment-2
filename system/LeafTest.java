@@ -24,4 +24,19 @@ public class LeafTest {
         }
         assertNotNull(leaf);
     }
+
+    @Test
+    public void getPath() {
+        Leaf leaf;
+        String[] path = null;
+        String[] expectedPath = {};
+        try {
+            leaf = new Leaf("yogev", 10);
+            path = leaf.getPath();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        assertArrayEquals(path, expectedPath);
+    }
 }
