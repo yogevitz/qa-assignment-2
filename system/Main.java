@@ -6,7 +6,7 @@ public class Main {
         FileSystem fs = new FileSystem(10);
 // this creates a file system with 10 disk blocks.
 
-        String[] rootname = {"r oot"};
+        String[] rootname = {"root"};
         String[] namef1 = {"root", "file1"};
         String[] named1 = {"root", "dir1"};
 
