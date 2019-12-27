@@ -26,6 +26,16 @@ public class LeafTest {
     }
 
     @Test
+    public void name() {
+        try {
+            Leaf leaf = new Leaf("yogev",1);
+            assertEquals(leaf.name, "yogev");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
     public void getPath() {
         Leaf leaf;
         String[] path = null;
