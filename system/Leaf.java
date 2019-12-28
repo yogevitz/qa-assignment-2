@@ -24,7 +24,11 @@ public class Leaf extends Node {
 
         this.name = name;
 
-        allocateSpace(size);
+        try {
+            allocateSpace(size);
+        } catch (Exception e) {
+            throw new OutOfSpaceException();
+        }
 
     }
 
