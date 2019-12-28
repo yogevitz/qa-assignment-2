@@ -31,7 +31,6 @@ public class LeafTest {
         assertNotNull(leaf);
     }
 
-
     @Test(expected = OutOfSpaceException.class)
     public void createLeafException() throws OutOfSpaceException {
         Leaf leaf = new Leaf("yogev", 100000);
