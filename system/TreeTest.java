@@ -27,6 +27,13 @@ public class TreeTest {
     }
 
     @Test
+    public void name() {
+        String name = "yogev";
+        Tree tree = new Tree(name);
+        assertEquals(tree.name, name);
+    }
+
+    @Test
     public void getPath() {
     }
 
