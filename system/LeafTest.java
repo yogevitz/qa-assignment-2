@@ -71,6 +71,22 @@ public class LeafTest {
     }
 
     @Test
+    public void memorySize() {
+        Leaf leaf;
+        int leafSize = 1;
+        int memory;
+        try {
+            leaf = new Leaf("yogev", leafSize);
+            for (int i = 0; i < leafSize; i++) {
+                memory = leaf.allocations[i];
+                assertEquals(leaf, FileSystem.fileStorage.getAlloc()[memory]);
+            }
+        } catch (OutOfSpaceException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
     public void getPath() {
         Leaf leaf;
         String[] path = null;
