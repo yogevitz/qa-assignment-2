@@ -21,6 +21,12 @@ public class TreeTest {
     }
 
     @Test
+    public void createTree() {
+        Tree tree = new Tree("yogev");
+        assertNotNull(tree);
+    }
+
+    @Test
     public void getPath() {
     }
 
