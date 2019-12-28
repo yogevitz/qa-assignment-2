@@ -31,15 +31,16 @@ public class LeafTest {
         assertNotNull(leaf);
     }
 
-    @Test (expected = Exception.class)
-    public void createLeafException() throws Exception {
+
+    @Test(expected = OutOfSpaceException.class)
+    public void createLeafException() throws OutOfSpaceException {
         Leaf leaf = new Leaf("yogev", 100000);
     }
 
     @Test
     public void name() {
         try {
-            Leaf leaf = new Leaf("yogev",1);
+            Leaf leaf = new Leaf("yogev", 1);
             assertEquals(leaf.name, "yogev");
         } catch (Exception e) {
             e.printStackTrace();
