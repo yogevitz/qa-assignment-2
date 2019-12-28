@@ -47,6 +47,18 @@ public class LeafTest {
     }
 
     @Test
+    public void size() {
+        Leaf leaf;
+        int leafSize = 1;
+        try {
+            leaf = new Leaf("yogev", leafSize);
+            assertEquals(leaf.size, leafSize);
+        } catch (OutOfSpaceException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
     public void getPath() {
         Leaf leaf;
         String[] path = null;
