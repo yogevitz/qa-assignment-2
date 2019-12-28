@@ -8,16 +8,16 @@ import static org.junit.Assert.*;
 
 public class LeafTest {
 
-    FileSystem fileSystem;
+    FileSystemStub fileSystemStub;
 
     @Before
     public void initialize() {
-        fileSystem = new FileSystem(1000);
+        fileSystemStub = new FileSystemStub(1000);
     }
 
     @After
     public void erase() {
-        fileSystem = null;
+        fileSystemStub = null;
     }
 
     @Test
