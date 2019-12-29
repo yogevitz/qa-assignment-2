@@ -56,4 +56,13 @@ public class TreeTest {
         chiefoss.children.put("gal", gal);
         assertEquals(gal,chiefoss.GetChildByName("gal"));
     }
+
+    @Test
+    public void getChildByNameIfNotExist() {
+        Tree chiefoss = new Tree("chief");
+        Tree rom =chiefoss.GetChildByName("rom");
+        assertNotNull(rom);
+        assertEquals(rom, chiefoss.GetChildByName("rom"));
+
+    }
 }
