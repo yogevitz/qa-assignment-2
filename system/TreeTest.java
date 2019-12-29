@@ -8,16 +8,16 @@ import static org.junit.Assert.*;
 
 public class TreeTest {
 
-    FileSystemStub fileSystemStub;
+    FileSystem fileSystem;
 
     @Before
     public void initialize() {
-        fileSystemStub = new FileSystemStub(1000);
+        fileSystem = new FileSystem(1000);
     }
 
     @After
     public void erase() {
-        fileSystemStub = null;
+        fileSystem = null;
     }
 
     @Test
@@ -39,5 +39,15 @@ public class TreeTest {
 
     @Test
     public void getChildByName() {
+    }
+
+    /*Test for Node*/
+    public void updateParent(){
+
+    }
+
+
+    public void updateDepth(){
+
     }
 }

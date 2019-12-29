@@ -14,16 +14,16 @@ import static org.junit.Assert.*;
 @RunWith(Parameterized.class)
 public class LeafTest {
 
-    FileSystemStub fileSystemStub;
+    FileSystem fileSystem;
 
     @Before
     public void initialize() {
-        fileSystemStub = new FileSystemStub(1000);
+        fileSystem = new FileSystem(1000);
     }
 
     @After
     public void erase() {
-        fileSystemStub = null;
+        fileSystem = null;
     }
 
     @Parameterized.Parameters
