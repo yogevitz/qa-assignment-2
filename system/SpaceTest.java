@@ -3,9 +3,15 @@ package system;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import java.util.Arrays;
+import java.util.Collection;
 
 import static org.junit.Assert.*;
 
+@RunWith(Parameterized.class)
 public class SpaceTest {
 
     FileSystem fileSystem;
@@ -18,6 +24,32 @@ public class SpaceTest {
     @After
     public void erase() {
         fileSystem = null;
+    }
+
+    @Parameterized.Parameters
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][]{
+                {5},{0},{-5}
+        });
+    }
+
+    private int size;
+
+    public SpaceTest(int size) {
+        this.size = size;
+    }
+
+    @Test
+    public void createSpace() {
+        Space space = null;
+        try {
+            space = new Space(size);
+        } catch (Exception e) {}
+        if (size > 0) {
+            assertNotNull(space);
+        } else {
+            assertNull("Size should be greater than 0", space);
+        }
     }
 
     @Test
