@@ -11,8 +11,11 @@ public class Space {
      * Ctor - create \c size blank filesystem blocks.
      * @param size
      */
-    public Space(int size) {
+    public Space(int size) throws Exception {
 
+        if (size <= 0) {
+            throw new Exception("no good");
+        }
         blocks = new Leaf[size];
         //sacrifice space for speed
         freeBlocks = new LinkedList<Integer>();
