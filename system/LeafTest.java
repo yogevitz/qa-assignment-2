@@ -63,7 +63,7 @@ public class LeafTest {
     }
 
     @Test
-    public void size() {
+    public void updateSize() {
         Leaf leaf;
         int leafSize = 1;
         try {
