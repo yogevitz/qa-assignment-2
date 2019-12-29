@@ -59,7 +59,6 @@ public class LeafTest {
             Leaf leaf = new Leaf("yogev", 1);
             assertEquals(leaf.name, "yogev");
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -71,7 +70,6 @@ public class LeafTest {
             leaf = new Leaf("yogev", leafSize);
             assertEquals(leaf.size, leafSize);
         } catch (OutOfSpaceException e) {
-            e.printStackTrace();
         }
     }
 
@@ -82,7 +80,6 @@ public class LeafTest {
         try {
             leaf = new Leaf("yogev", leafSize);
         } catch (OutOfSpaceException e) {
-            e.printStackTrace();
         }
         assertEquals(leaf.allocations.length, leafSize);
     }
@@ -99,7 +96,6 @@ public class LeafTest {
                 assertEquals(leaf, FileSystem.fileStorage.getAlloc()[memory]);
             }
         } catch (OutOfSpaceException e) {
-            e.printStackTrace();
         }
     }
 
@@ -113,7 +109,6 @@ public class LeafTest {
             path = leaf.getPath();
 
         } catch (Exception e) {
-            e.printStackTrace();
         }
         assertArrayEquals(path, expectedPath);
     }
