@@ -59,14 +59,14 @@ public class LeafTest {
 
     @Test(expected = OutOfSpaceException.class)
     public void createLeafException() throws OutOfSpaceException {
-        Leaf leaf = new Leaf("yogev", 100000);
+        Leaf leaf = new Leaf("createLeafException", 100000);
     }
 
     @Test
     public void updateName() {
         try {
-            Leaf leaf = new Leaf("yogev", 1);
-            assertEquals(leaf.name, "yogev");
+            Leaf leaf = new Leaf("updateName", 1);
+            assertEquals(leaf.name, "updateName");
         } catch (Exception e) {
         }
     }
@@ -76,7 +76,7 @@ public class LeafTest {
         Leaf leaf;
         int leafSize = 1;
         try {
-            leaf = new Leaf("yogev", leafSize);
+            leaf = new Leaf("updateSize", leafSize);
             assertEquals(leaf.size, leafSize);
         } catch (OutOfSpaceException e) {
         }
@@ -87,7 +87,7 @@ public class LeafTest {
         Leaf leaf = null;
         int leafSize = 1;
         try {
-            leaf = new Leaf("yogev", leafSize);
+            leaf = new Leaf("allocationsSize", leafSize);
         } catch (OutOfSpaceException e) {
         }
         assertEquals(leaf.allocations.length, leafSize);
@@ -99,7 +99,7 @@ public class LeafTest {
         int leafSize = 1;
         int memory;
         try {
-            leaf = new Leaf("yogev", leafSize);
+            leaf = new Leaf("memorySize", leafSize);
             for (int i = 0; i < leafSize; i++) {
                 memory = leaf.allocations[i];
                 assertEquals(leaf, FileSystem.fileStorage.getAlloc()[memory]);
@@ -114,7 +114,7 @@ public class LeafTest {
         String[] path = null;
         String[] expectedPath = {};
         try {
-            leaf = new Leaf("yogev", 10);
+            leaf = new Leaf("getPath", 10);
             path = leaf.getPath();
 
         } catch (Exception e) {
