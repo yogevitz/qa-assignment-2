@@ -1,5 +1,6 @@
 package system;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -11,6 +12,11 @@ public class FileSystemTest {
     @Before
     public void initialize() {
         fs = new FileSystem(1000000);
+    }
+
+    @After
+    public void clear(){
+        fs = null;
     }
 
     @Test
@@ -63,7 +69,7 @@ public class FileSystemTest {
     }
 
     @Test
-    public void lsdir() {
+    public void lsdir() /{
     }
 
     @Test
