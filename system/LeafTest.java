@@ -54,7 +54,7 @@ public class LeafTest {
     }
 
     @Test
-    public void name() {
+    public void updateName() {
         try {
             Leaf leaf = new Leaf("yogev", 1);
             assertEquals(leaf.name, "yogev");
