@@ -63,6 +63,5 @@ public class TreeTest {
         Tree rom =chiefoss.GetChildByName("rom");
         assertNotNull(rom);
         assertEquals(rom, chiefoss.GetChildByName("rom"));
-
     }
 }
