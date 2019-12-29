@@ -32,7 +32,12 @@ public class FileSystemTest {
 
     @Test
     public void dir() {
-
+        String [] path = {"root","aliad","byogev","chadar","drom","yarin"};
+        try {
+            fs.dir(path);
+        } catch (BadFileNameException e) {
+        }
+        assertNotNull(fs.DirExists(path));
     }
 
     @Test
