@@ -29,23 +29,32 @@ public class LeafTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {"yogev", 10}, {"liad", -1}, {"hadar", 0}, {"mor", 0.5}, {"amit", null}, {null, 10}
+                {"yogev", 10}, {"liad", -1}, {"hadar", 0}, {"mor", 0.5}, {null, 10}, {"", 10}
         });
     }
-    private  String name;
-    private  int size;
-    public LeafTest(String name,int size){
-        this.name=name;
-        this.size=size;
+
+    private String name;
+    private int size;
+
+    public LeafTest(String name, int size) {
+        this.name = name;
+        this.size = size;
     }
+
     @Test
     public void createLeaf() {
+        String testName = name;
+        int testSize = size;
         Leaf leaf = null;
         try {
-            leaf = new Leaf(name, size);
+            leaf = new Leaf(testName, testSize);
         } catch (Exception e) {
         }
-        assertNotNull(leaf);
+        if (testSize >= 1 && name != null && !(name.equals(""))) {
+            assertNotNull(leaf);
+        } else {
+            assertNull(leaf);
+        }
     }
 
     @Test(expected = OutOfSpaceException.class)
