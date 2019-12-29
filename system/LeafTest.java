@@ -61,9 +61,7 @@ public class LeafTest {
     public void createLeafException() throws OutOfSpaceException {
         try {
             Leaf leaf = new Leaf("createLeafException", 100000);
-        } catch (Exception e) {
-
-        }
+        } catch (Exception e) {}
     }
 
     @Test
@@ -71,8 +69,7 @@ public class LeafTest {
         try {
             Leaf leaf = new Leaf("updateName", 1);
             assertEquals(leaf.name, "updateName");
-        } catch (Exception e) {
-        }
+        } catch (Exception e) {}
     }
 
     @Test
