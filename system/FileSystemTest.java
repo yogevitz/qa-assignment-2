@@ -78,6 +78,13 @@ public class FileSystemTest {
 
     @Test
     public void file() {
+        String [] path = {"root","aliad","byogev","chadar","drom","yuval"};
+        try {
+            fs.file(path,10);
+        } catch (OutOfSpaceException e) {
+        } catch (BadFileNameException e) {
+        }
+        assertNotNull(fs.FileExists(path));
     }
 
     @Test (expected = BadFileNameException.class)
