@@ -1,5 +1,6 @@
 package system;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,6 +13,11 @@ public class SpaceTest {
     @Before
     public void initialize() {
         fileSystem = new FileSystem(1000);
+    }
+
+    @After
+    public void erase() {
+        fileSystem = null;
     }
 
     @Test
