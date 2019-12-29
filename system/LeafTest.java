@@ -3,9 +3,15 @@ package system;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import java.util.Arrays;
+import java.util.Collection;
 
 import static org.junit.Assert.*;
 
+@RunWith(Parameterized.class)
 public class LeafTest {
 
     FileSystemStub fileSystemStub;
@@ -20,13 +26,24 @@ public class LeafTest {
         fileSystemStub = null;
     }
 
+    @Parameterized.Parameters
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][]{
+                {"yogev", 10}, {"liad", -1}, {"hadar", 0}, {"mor", 0.5}, {"amit", null}, {null, 10}
+        });
+    }
+    private  String name;
+    private  int size;
+    public LeafTest(String name,int size){
+        this.name=name;
+        this.size=size;
+    }
     @Test
     public void createLeaf() {
         Leaf leaf = null;
         try {
-            leaf = new Leaf("yogev", 10);
+            leaf = new Leaf(name, size);
         } catch (Exception e) {
-            e.printStackTrace();
         }
         assertNotNull(leaf);
     }
