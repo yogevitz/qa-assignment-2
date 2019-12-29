@@ -40,6 +40,21 @@ public class FileSystemTest {
         assertNotNull(fs.DirExists(path));
     }
 
+
+    @Test(expected = BadFileNameException.class)
+    public void createDirExceptionIfNotRoot() throws Exception {
+        String [] wrngPath = {"ofer"};
+        fs.dir(wrngPath);
+    }
+
+
+    @Test(expected = BadFileNameException.class)
+    public void createDirExceptionIfFileExists() throws BadFileNameException {
+        String [] path = {"root","ofer"};
+            fs.dir(path);
+            fs.dir(path);
+    }
+
     @Test
     public void disk() {
     }
