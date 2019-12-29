@@ -25,7 +25,9 @@ public class FileSystem {
 
         fileSystemTree = new Tree("root");
 
-        fileStorage = new Space(m);
+        try {
+            fileStorage = new Space(m);
+        } catch (Exception e) {}
 
     }
 
