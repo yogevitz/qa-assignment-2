@@ -29,7 +29,7 @@ public class LeafTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {"yogev", 10}, {"liad", -1}, {"hadar", 0}, {"mor", 0.5}, {null, 10}, {"", 10}
+                {"yogev", 10}, {"liad", -1}, {"hadar", 0}, {null, 10}, {"", 10}
         });
     }
 
@@ -50,7 +50,7 @@ public class LeafTest {
             leaf = new Leaf(testName, testSize);
         } catch (Exception e) {
         }
-        if (testSize >= 1 && name != null && !(name.equals(""))) {
+        if (testSize >= 1 && testName != null && !(testName.equals(""))) {
             assertNotNull(leaf);
         } else {
             assertNull(leaf);
@@ -59,7 +59,11 @@ public class LeafTest {
 
     @Test(expected = OutOfSpaceException.class)
     public void createLeafException() throws OutOfSpaceException {
-        Leaf leaf = new Leaf("createLeafException", 100000);
+        try {
+            Leaf leaf = new Leaf("createLeafException", 100000);
+        } catch (Exception e) {
+
+        }
     }
 
     @Test
@@ -79,6 +83,7 @@ public class LeafTest {
             leaf = new Leaf("updateSize", leafSize);
             assertEquals(leaf.size, leafSize);
         } catch (OutOfSpaceException e) {
+        } catch (Exception e) {
         }
     }
 
@@ -89,22 +94,23 @@ public class LeafTest {
         try {
             leaf = new Leaf("allocationsSize", leafSize);
         } catch (OutOfSpaceException e) {
+        } catch (Exception e) {
         }
         assertEquals(leaf.allocations.length, leafSize);
     }
 
     @Test
     public void memorySize() {
-        Leaf leaf;
+        Leaf leaf = null;
         int leafSize = 1;
         int memory;
         try {
             leaf = new Leaf("memorySize", leafSize);
-            for (int i = 0; i < leafSize; i++) {
-                memory = leaf.allocations[i];
-                assertEquals(leaf, FileSystem.fileStorage.getAlloc()[memory]);
-            }
-        } catch (OutOfSpaceException e) {
+        } catch (Exception e) {
+        }
+        for (int i = 0; i < leafSize; i++) {
+            memory = leaf.allocations[i];
+            assertEquals(leaf, FileSystem.fileStorage.getAlloc()[memory]);
         }
     }
 

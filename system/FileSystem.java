@@ -147,7 +147,12 @@ public class FileSystem {
 
         }
 
-        Leaf newLeaf = new Leaf(fileName, k);
+        Leaf newLeaf = null;
+        try {
+            newLeaf = new Leaf(fileName, k);
+        } catch (Exception e) {
+
+        }
         newLeaf.parent = workingTree;
         newLeaf.depth = newLeaf.parent.depth + 1;
 

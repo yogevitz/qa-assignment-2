@@ -20,15 +20,19 @@ public class Leaf extends Node {
      * @param size Size, in KB, of the leaf.
      * @throws OutOfSpaceException Allocating space failed.
      */
-    public Leaf(String name, int size) throws OutOfSpaceException {
+    public Leaf(String name, int size) throws Exception {
+        if (size >= 1 && name != null && !(name.equals(""))) {
+            this.name = name;
 
-        this.name = name;
-
-        try {
-            allocateSpace(size);
-            this.size = size;
-        } catch (Exception e) {
-            throw new OutOfSpaceException();
+            try {
+                allocateSpace(size);
+                this.size = size;
+            } catch (Exception e) {
+                throw new OutOfSpaceException();
+            }
+        }
+        else{
+            throw new Exception();
         }
 
     }
