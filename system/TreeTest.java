@@ -13,7 +13,6 @@ import static org.junit.Assert.*;
 public class TreeTest {
 
     FileSystem fileSystem;
-    Tree trial;
 
     @Before
     public void initialize() {
@@ -51,6 +50,10 @@ public class TreeTest {
     }
 
     @Test
-    public void getChildByName() {
+    public void getChildByNameIfExist() {
+        Tree chiefoss = new Tree("chief");
+        Tree gal = new Tree("gal");
+        chiefoss.children.put("gal", gal);
+        assertEquals(gal,chiefoss.GetChildByName("gal"));
     }
 }
