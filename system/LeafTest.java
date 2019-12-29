@@ -110,7 +110,7 @@ public class LeafTest {
         }
         for (int i = 0; i < leafSize; i++) {
             memory = leaf.allocations[i];
-            assertEquals(leaf, FileSystem.fileStorage.getAlloc()[memory]);
+            assertEquals(leaf, fileSystem.fileStorage.getAlloc()[memory]);
         }
     }
 
