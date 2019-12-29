@@ -24,6 +24,7 @@ public class FileSystemTest {
         assertNotNull(fs);
     }
 
+
     @Test
     public void updateFileStorage(){
         assertNotNull(fs.fileStorage);
@@ -62,6 +63,17 @@ public class FileSystemTest {
 
     @Test
     public void disk() {
+        String [] path = {"root","chen"};
+        String [] path2 = {"root","yael"};
+        String [] path3 = {"root","sara"};
+        String[][]disk = {path,path2,path3};
+        try {
+            fs.dir(path);
+            fs.dir(path2);
+            fs.dir(path3);
+        } catch (BadFileNameException e) {
+        }
+        assertEquals(disk,fs.disk());
     }
 
     @Test
