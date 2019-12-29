@@ -58,10 +58,8 @@ public class LeafTest {
     }
 
     @Test(expected = OutOfSpaceException.class)
-    public void createLeafException() throws OutOfSpaceException {
-        try {
+    public void createLeafException() throws Exception {
             Leaf leaf = new Leaf("createLeafException", 100000);
-        } catch (Exception e) {}
     }
 
     @Test
