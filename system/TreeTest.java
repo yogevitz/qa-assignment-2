@@ -27,7 +27,7 @@ public class TreeTest {
     }
 
     @Test
-    public void name() {
+    public void updateName() {
         String name = "yogev";
         Tree tree = new Tree(name);
         assertEquals(tree.name, name);
