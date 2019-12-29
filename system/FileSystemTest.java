@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 public class FileSystemTest {
 
     FileSystem fs;
+
     @Before
     public void initialize() {
         fs = new FileSystem(1000000);
