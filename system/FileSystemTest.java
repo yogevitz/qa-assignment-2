@@ -93,6 +93,12 @@ public class FileSystemTest {
         fs.file(wrngPath,10);
     }
 
+    @Test(expected = BadFileNameException.class)
+    public void createFileExceptionIfFileExists() throws BadFileNameException, OutOfSpaceException {
+        String [] path = {"root","ofer"};
+        fs.file(path,10);
+        fs.file(path,10);
+    }
     @Test
     public void lsdir(){
     }
