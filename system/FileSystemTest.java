@@ -3,6 +3,9 @@ package system;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 public class FileSystemTest {
@@ -101,6 +104,27 @@ public class FileSystemTest {
     }
     @Test
     public void lsdir(){
+
+        String [] path = {"root","yuv"};
+        try {
+            Tree file = fs.DirExists(path);
+            if (file==null){
+                assertNull(fs.lsdir(path));
+            }
+            fs.dir(path);
+            file = fs.DirExists(path);
+            String[] fileList;
+            fileList = new String[file.children.size()];
+            fileList = file.children.keySet().toArray(fileList);
+            //sort array - not essential, but nice!
+            Arrays.sort(fileList);
+            String[] fileListLSDIR= fs.lsdir(path);
+            for (int i = 0; i < fileListLSDIR.length ; i++) {
+                assertEquals(fileList[i], fileListLSDIR[i]);
+            }
+        } catch (BadFileNameException e) {
+        }
+
     }
 
     @Test
