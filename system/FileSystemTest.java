@@ -170,6 +170,14 @@ public class FileSystemTest {
 
     @Test
     public void fileExists() {
+        String[] path = {"root","shlomyuv"};
+        try {
+            assertNull(fs.FileExists(path));
+            fs.file(path,10);
+            assertNotNull(fs.FileExists(path));
+        } catch (BadFileNameException e) {
+        } catch (OutOfSpaceException e) {
+        }
     }
 
     @Test
