@@ -106,7 +106,7 @@ public class FileSystem {
         Tree workingTree = fileSystemTree;
         String fileName = name[name.length - 1];
 
-        if (name[0] != "root") {
+        if (name[0] != "root" || (FileExists(name) != null)) {
 
             throw new BadFileNameException();
 
