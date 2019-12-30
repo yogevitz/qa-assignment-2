@@ -103,5 +103,6 @@ public class SpaceTest {
 
     @Test
     public void getAlloc() {
+        assertEquals(fileSystemSpaceSize, FileSystem.fileStorage.getAlloc().length);
     }
 }
