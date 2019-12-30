@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.nio.file.DirectoryNotEmptyException;
 import java.util.Arrays;
 
 import static org.junit.Assert.*;
@@ -145,6 +146,18 @@ public class FileSystemTest {
 
     @Test
     public void rmdir() {
+        String [] path = {"root","shlomyarden"};
+        try {
+            fs.dir(path);
+            fs.DirExists(path);
+            fs.rmdir(path);
+            assertNull(fs.DirExists(path));
+
+        } catch (BadFileNameException e) {
+
+        } catch (DirectoryNotEmptyException e) {
+
+        }
     }
 
     @Test
