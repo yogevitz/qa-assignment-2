@@ -77,6 +77,15 @@ public class SpaceTest {
 
     @Test
     public void dealloc() {
+        Space space;
+        Leaf leaf;
+        String leafName = "leaf";
+        try {
+            space = new Space(100);
+            leaf = new Leaf(leafName, 10);
+            space.Dealloc(leaf);
+            assertNull(space.getAlloc());
+        } catch (Exception e) {}
     }
 
     @Test
