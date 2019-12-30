@@ -132,7 +132,6 @@ public class FileSystemTest {
         String [] path = {"root","romber"};
         try {
             fs.file(path,10);
-            fs.FileExists(path);
             fs.rmfile(path);
             assertNull(fs.FileExists(path));
 
@@ -144,12 +143,12 @@ public class FileSystemTest {
 
     }
 
-    @Test
+
+        @Test
     public void rmdir() {
-        String [] path = {"root","shlomyarden"};
+        String [] path = {"root","shlomyar"};
         try {
             fs.dir(path);
-            fs.DirExists(path);
             fs.rmdir(path);
             assertNull(fs.DirExists(path));
 
@@ -158,6 +157,15 @@ public class FileSystemTest {
         } catch (DirectoryNotEmptyException e) {
 
         }
+    }
+
+    @Test(expected = DirectoryNotEmptyException.class)
+    public void rmdirException() throws Exception {
+        String[] path = {"root","galber"};
+        String[] pathfile = {"root","galber","liad"};
+        fs.dir(path);
+        fs.file(pathfile,10);
+        fs.rmdir(path);
     }
 
     @Test
