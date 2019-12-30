@@ -72,8 +72,9 @@ public class SpaceTest {
         } catch (Exception e) {}
     }
 
-    @Test
-    public void allocException() {
+    @Test (expected = OutOfSpaceException.class)
+    public void allocException() throws OutOfSpaceException {
+        Space space = new Space(-1);
     }
 
     @Test
