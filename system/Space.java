@@ -11,10 +11,10 @@ public class Space {
      * Ctor - create \c size blank filesystem blocks.
      * @param size
      */
-    public Space(int size) throws Exception {
+    public Space(int size) throws OutOfSpaceException {
 
         if (size <= 0) {
-            throw new Exception("no good");
+            throw new OutOfSpaceException();
         }
         blocks = new Leaf[size];
         //sacrifice space for speed
