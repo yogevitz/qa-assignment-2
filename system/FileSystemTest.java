@@ -88,7 +88,7 @@ public class FileSystemTest {
     }
 
     @Test (expected = BadFileNameException.class)
-    public void createBadFileNameException() throws OutOfSpaceException, BadFileNameException {
+    public void createFileExceptionIfNotRoot() throws OutOfSpaceException, BadFileNameException {
         String [] wrngPath = {"ofer"};
         fs.file(wrngPath,10);
     }
