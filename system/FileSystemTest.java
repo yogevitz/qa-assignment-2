@@ -182,5 +182,12 @@ public class FileSystemTest {
 
     @Test
     public void dirExists() {
+        String[] path = {"root","shlomyar"};
+        try {
+            assertNull(fs.DirExists(path));
+            fs.dir(path);
+            assertNotNull(fs.DirExists(path));
+        } catch (BadFileNameException e) {
+        }
     }
 }
