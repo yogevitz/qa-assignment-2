@@ -35,12 +35,6 @@ public class FileSystemTest {
     }
 
     @Test
-    public void updateFileSystemTree(){
-        String [] root = {"root"};
-        assertNotNull(fs.DirExists(root));
-    }
-
-    @Test
     public void dir() {
         String [] path = {"root","aliad","byogev","chadar","drom","yarin"};
         try {
@@ -67,17 +61,29 @@ public class FileSystemTest {
 
     @Test
     public void disk() {
-        String [] path = {"root","chen"};
+        String [] path1 = {"root","chen"};
         String [] path2 = {"root","yael"};
         String [] path3 = {"root","sara"};
-        String[][]disk = {path,path2,path3};
+        String[] expectedDisk = {path1[0],path1[1],path2[0],path2[1],path3[0],path3[1]};
         try {
-            fs.dir(path);
-            fs.dir(path2);
-            fs.dir(path3);
+            fs.file(path1,1);
+            fs.file(path2,1);
+            fs.file(path3,1);
+            String[][] actualDisk = fs.disk();
+            int i=0;
+            for (String[] path : actualDisk) {
+                if(path!=null) {
+                    for (String node : path) {
+                        if (node != null) {
+                            assertEquals(expectedDisk[i], node);
+                            i++;
+                        }
+                    }
+                }
+            }
         } catch (BadFileNameException e) {
+        } catch (OutOfSpaceException e) {
         }
-        assertEquals(disk,fs.disk());
     }
 
     @Test
