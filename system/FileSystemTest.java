@@ -104,7 +104,6 @@ public class FileSystemTest {
     }
     @Test
     public void lsdir(){
-
         String [] path = {"root","yuv"};
         try {
             Tree file = fs.DirExists(path);
@@ -129,6 +128,19 @@ public class FileSystemTest {
 
     @Test
     public void rmfile() {
+        String [] path = {"root","romber"};
+        try {
+            fs.file(path,10);
+            fs.FileExists(path);
+            fs.rmfile(path);
+            assertNull(fs.FileExists(path));
+
+        } catch (BadFileNameException e) {
+
+        } catch (OutOfSpaceException e) {
+
+        }
+
     }
 
     @Test
