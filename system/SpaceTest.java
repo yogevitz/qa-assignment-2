@@ -91,6 +91,14 @@ public class SpaceTest {
 
     @Test
     public void countFreeSpace() {
+        Leaf leaf;
+        String leafName = "leaf";
+        int leafSize = 10;
+        try {
+            leaf = new Leaf(leafName, leafSize);
+            int freeSpace = FileSystem.fileStorage.countFreeSpace();
+            assertEquals(fileSystemSpaceSize - leafSize, freeSpace);
+        } catch (Exception e) {}
     }
 
     @Test
