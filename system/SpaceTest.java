@@ -15,10 +15,11 @@ import static org.junit.Assert.*;
 public class SpaceTest {
 
     FileSystem fileSystem;
+    int fileSystemSpaceSize = 1000;
 
     @Before
     public void initialize() {
-        fileSystem = new FileSystem(1000);
+        fileSystem = new FileSystem(fileSystemSpaceSize);
     }
 
     @After
