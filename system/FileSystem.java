@@ -39,11 +39,14 @@ public class FileSystem {
     public void dir(String[] name) throws BadFileNameException {
 
         Tree workingTree = fileSystemTree;
+        try {
+            if (name[0] != "root" || (FileExists(name) != null)) {
 
-        if (name[0] != "root" || (FileExists(name) != null)) {
+                throw new BadFileNameException();
 
+            }
+        }catch(Exception e){
             throw new BadFileNameException();
-
         }
 
         if (DirExists(name) != null) {
